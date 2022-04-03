@@ -1,0 +1,13 @@
+[
+  {
+    "id":1,    
+    "timestamp":"",
+    "descripcion": "Bombon Crocante",
+    "categoria":"Bombones",
+    "peso":0,
+    "codigo":0,
+    "precio": 340,
+    "img": "./img/bomboncrocantesolo.png",
+    "stock": 6
+  }
+]
