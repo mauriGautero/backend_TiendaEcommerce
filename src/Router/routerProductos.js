@@ -4,30 +4,26 @@ const routerProductos = Router();
 const Producto = require("../controller/Producto");
 const productos = new Producto("./src/productos/productos.json");
 
+const admin = true;
 /* ----------------------------endpoint para las rutas --------------------------------- */
-// 1) /api/prodtuctos -> devuelve lista de productos formato json
-routerProductos.get("/", async (req, res) => {
-  const pd = await productos.getAll();
-  res.send({ pd });
-});
-
-// 2) /api/productos/:id -> devuelve un producto según su id. muestra mensaje si no lo existe
-routerProductos.get("/:id", async (req, res) => {
+//GET /api/productos/:id? -> devuelve la lista todos los productos 
+//  ó un producto según su id.
+routerProductos.get("/:id?", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const pd = await productos.getById(id);
-    if (pd) {
-      res.json({ pd });
+    const pd = await productos.getAll();
+    if (id) {
+      res.json(await productos.getById(id));
     } else {
-      res.json({ error: `producto con id:${id} no encontrado` });
+      res.json({ pd });
     }
   } catch (error) {
     return error;
   }
 });
 
-// 3) POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
-
+//POST '/api/productos' -> recibe y agrega un producto,
+//     y lo devuelve con su id asignado.
 routerProductos.post("/", async (req, res) => {
   const product = req.body;
   /* ----------------- agrego nuevo producto y devuelvo si id ----------------- */
@@ -42,29 +38,32 @@ routerProductos.put("/:id", async (req, res) => {
   const {
     body,
     params: { id },
-  } = req;
+  } = req;  
   const pdAnterior = await productos.getById(parseInt(id));
   const pdModificado = await productos.updateById(id, body);
-
   res.json({ pdAnterior, pdModificado });
 });
 
-// 5)DELETE '/api/productos/:id' -> elimina un producto según su id
+// DELETE '/api/productos/:id' -> elimina un producto según su id
 
 routerProductos.delete("/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const listado = await productos.getById(id);
-    if (listado) {
+    console.log(id);
+    //const buscado = await productos.getById(id);
+    if (id) {
       const eliminado = await productos.deleteById(id);
+      console.log("endpoint borrar:");
+      console.log(eliminado);
       const data = await productos.getAll();
-      res.json({ Resultado: `Producto con id: ${id} eliminado.`, listado });
+      res.json({ Resultado: `Producto con id: ${id} eliminado.`, data });
     } else {
       res.json({ error: `producto con id:${id} no encontrado` });
     }
   } catch (error) {
-    return error.message();
+    return error;
   }
 });
+
 
 module.exports = routerProductos;

@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "timestamp": "4/4/2022 10:40:38",
+    "timestamp": "",
     "descripcion": "Bombon Crocante",
     "categoria": "Bombones",
     "peso": 0,
     "codigo": 0,
-    "precio": 380,
+    "precio": 340,
     "img": "./img/bomboncrocantesolo.png",
-    "stock": 60,
-    "activo": true
+    "stock": 6,
+    "activo":false  
   },
   {
     "id": 2,
@@ -22,7 +22,7 @@
     "img": "./img/bombon_escoces_caja.jpeg",
     "stock": 6,
     "activo":true  
-  },
+},
   {
     "id": 3,
     "timestamp": "",
@@ -32,9 +32,9 @@
     "codigo": 0,
     "precio": 380,
     "img": "./img/bombom_suizo_caja.jpeg",
-    "stock": 6,
-    "activo": true
-  },
+    "stock": 6
+ ,
+"activo":true  },
   {
     "id": 4,
     "timestamp": "",
@@ -44,8 +44,8 @@
     "codigo": 0,
     "precio": 300,
     "img": "./img/bombonvainilla.png",
-    "stock": 10,
-    "activo": true
+    "stock": 10 ,
+    "activo":true
   },
   {
     "id": 5,
@@ -56,8 +56,8 @@
     "codigo": 0,
     "precio": 270,
     "img": "./img/casatta.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 6,
@@ -68,8 +68,8 @@
     "codigo": 0,
     "precio": 270,
     "img": "./img/almendrado.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 7,
@@ -80,8 +80,8 @@
     "codigo": 0,
     "precio": 270,
     "img": "./img/delicia.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 8,
@@ -92,8 +92,8 @@
     "codigo": 0,
     "precio": 270,
     "img": "./img/crocantino.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 9,
@@ -104,8 +104,8 @@
     "codigo": 0,
     "precio": 550,
     "img": "./img/palito_bombon.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 10,
@@ -116,8 +116,8 @@
     "codigo": 0,
     "precio": 330,
     "img": "./img/palito_frutal_frutilla.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 11,
@@ -128,8 +128,8 @@
     "codigo": 0,
     "precio": 330,
     "img": "./img/palitolimon.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 12,
@@ -140,8 +140,8 @@
     "codigo": 0,
     "precio": 330,
     "img": "./img/palitonaranja.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 13,
@@ -152,8 +152,8 @@
     "codigo": 0,
     "precio": 570,
     "img": "./img/familiar01.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 14,
@@ -164,8 +164,8 @@
     "codigo": 0,
     "precio": 570,
     "img": "./img/familiar02.png",
-    "stock": 20,
-    "activo": true
+    "stock": 20 ,
+    "activo":true
   },
   {
     "id": 15,
@@ -176,7 +176,8 @@
     "codigo": 0,
     "precio": 340,
     "img": "./img/familiar_n3.png",
-    "stock": 60,
-    "activo": true
+    "stock": 60 ,
+    "activo":true
+    
   }
 ]
