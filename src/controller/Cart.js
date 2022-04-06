@@ -1,7 +1,6 @@
 const fs = require("fs");
-const pd = require("./Producto");
-
-const prod = new pd("../productos/productos.json");
+const Producto = require("./Producto");
+const prod = new Producto("../productos/productos.json");
 class Cart {
   constructor(archivo) {
     this.archivo = archivo;
@@ -50,29 +49,40 @@ class Cart {
   }
 
   //agregar productos al carrito
-  async updateCart(id, datos) {
+  async updateCart(_id, datos) {
     const data = await fs.promises.readFile(this.archivo, "utf-8");
     const lista = JSON.parse(data);
-    const indice = lista.findIndex((c) => c.idCart == id);
+    //obtengo indice del carrito
+    const indice = lista.findIndex((c) => c.idCart == _id);
     let cart = lista[indice];
 
-    try {
-      cart.productos.push(datos);
-      lista[indice] = cart;
-      await fs.promises.writeFile(this.archivo, JSON.stringify(lista, null, 2));
+    //guardo el carrito con los productos previos
+    const cartAnterior = await this.getCart(_id);
+    const IdPd = datos.id;
 
-      const carrito = await this.getCart(id);
-      return carrito;
-      console.log(cart.productos);
-      /* if (cartAnterior.some((x) => x.producto.id === producto.producto.id)) {
-        cartAnterior.find(
-          (x) => x.producto.id === producto.producto.id
-        ).cantidad += cantidad;
-        productos.push(cartAnterior);
+    const pp = cartAnterior.productos.map((c) => c.id);
+    const { productos } = cartAnterior;
+    let _cantidad = 0;
+    try {
+      /**/
+      if (productos.some((x) => x.id === pp[0])) {       
+        productos.find((x) => productos.id === pp[0]).cantidad += 2;
+        cart.productos.push(...productos, datos);
       } else {
-        productos.push(prod);       
-      } 
-      */
+        
+        cart.productos.push(datos);
+
+        /**/
+
+        //agrego producto en el carrito
+        //cart.productos.push(datos);
+
+        //Actualizo el carrito en el array de carrito con el producto
+        lista[indice] = cart;
+      }
+      await fs.promises.writeFile(this.archivo, JSON.stringify(lista, null, 2));
+      const carrito = await this.getCart(_id);
+      return carrito;
     } catch (error) {
       return "error al agregar producto: " + error.message;
     }

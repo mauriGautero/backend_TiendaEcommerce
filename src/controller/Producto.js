@@ -25,7 +25,7 @@ class Producto {
       if (pd) {
         return pd;
       } else {
-        return `Producto con id:${id}, no encotrado`;
+        return `Producto con id:${id}, no encontrado`;
       }
     } catch (error) {
       console.log(error);

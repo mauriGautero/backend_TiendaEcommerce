@@ -7,7 +7,7 @@ const Producto = require("../controller/Producto");
 
 /* ------------------------ instacnio obj de la clase ----------------------- */
 const cart = new Carrito("./src/carrito/carrito.json");
-const productos = new Producto("./src/productos/productos.json");
+const pd = new Producto("./src/productos/productos.json");
 
 /* ----------------------------endpoint para las rutas para el carrito --------------------------------- */
 //obtener carrito
